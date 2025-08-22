@@ -8,7 +8,7 @@ assignees: ''
 
 ## Version
 
-- Thesis template: <!-- example: "d0a290193eb5c5a3f7565a12edf2a6b3ef99a6ef" -->
+- Thesis template: <!-- example: "baa0712df39706c150cdcc8f604267ddd7a819ae" -->
 - Typst: <!-- example: "v0.13.1" -->
 - Tinymist extension (optional): <!-- example: "0.13.22" -->
 

@@ -84,7 +84,7 @@
   ///   image of your handwritten signature; used for the "Eigenständigkeitserklärung"
   ///
   ///   Can be either:
-  ///   - a file path, absolute to the Typst compile root (that is, a path starting with `/`), for example `/signature.svg` or `/signature.png` (recommended)
+  ///   - (recommended) a file path, absolute to the Typst compile root (that is, a path starting with `/`), for example `/signature.svg` or `/signature.png`
   ///   - an image, for example `image("my-signature.svg")` (in this case you manually have to set the proper image size, for example `height: 2.5em`)
   ///
   ///   The image should consist only of the signature, ideally with transparent / white background and without excessive whitespace around it.

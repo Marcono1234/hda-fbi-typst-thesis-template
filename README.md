@@ -17,13 +17,13 @@ The template is based on:
 > Also note that professors might have additional requirements or preferences for the layout (though it might not affect grading). For example some professors might prefer large figures to 'float' to the top of pages (can be achieved with [Typst's `figure.placement`](https://typst.app/docs/reference/model/figure/#parameters-placement)). Ask your professor about this, and listen to their feedback when you hand in the first drafts of your thesis.
 
 > [!IMPORTANT]\
-> This template tries to follow Prof. von Rüden's "Empfehlungen zu Abschlussarbeiten". If you notice any deviations from these recommendations, from the official requirements, or if a professors tells you that something is missing / wrong with the template, please report it [as issue](https://github.com/Marcono1234/hda-fbi-typst-thesis-template/issues).
+> This template tries to follow Prof. von Rüden's "Empfehlungen zu Abschlussarbeiten". If you notice any deviations from these recommendations, from the official requirements, or if a professor tells you that something is missing / wrong with the template, please report it [as issue](https://github.com/Marcono1234/hda-fbi-typst-thesis-template/issues).
 >
 > To be safe, double check that your thesis fulfills all requirements and recommendations, in case they have changed in the meantime or there is an issue with this template.
 
 > [!NOTE]\
 > The thesis template currently only supports one-sided printing. Printing two-sided likely causes undesired results such as incorrect margins.\
-> If you are interested in two-sided printing, have a look at [this feature request](). However, you should clarify with your professor if they permit two-sided printing in the first place.
+> If you are interested in two-sided printing, have a look at [this feature request](https://github.com/Marcono1234/hda-fbi-typst-thesis-template/issues/2). However, you should clarify with your professor if they permit two-sided printing in the first place.
 
 ## Usage
 
@@ -32,14 +32,14 @@ The template is based on:
 There are multiple ways to use Typst:
 
 - [Web App](https://typst.app/pricing/)
-- [Command Line Interface (CLI)](https://github.com/typst/typst?tab=readme-ov-file#installation)
+- [Command Line Interface (CLI)](https://typst.app/open-source/#download) ([GitHub repository](https://github.com/typst/typst?tab=readme-ov-file#installation))
 - [VS Code Extension](https://github.com/Myriad-Dreamin/tinymist/tree/main/editors/vscode#readme) (third-party)
 
-This thesis template is currently not available in the Typst package registry, therefore using the CLI or the VS Code Extension is recommended, but using the Web App might work as well if you manually upload the thesis template to your project.
+This thesis template is currently not available in the Typst package registry ("Typst Universe"), therefore using the CLI or the VS Code Extension is recommended, but using the Web App might work as well if you manually upload the thesis template to your project.
 
 ### Using the template
 
-This thesis template is currently not available in the Typst package registry; the recommended way to use it is to either:
+This thesis template is currently not available in the Typst package registry ("Typst Universe"); the recommended way to use it is to either:
 
 - [Download the GitHub repository as ZIP](https://github.com/Marcono1234/hda-fbi-typst-thesis-template/archive/refs/heads/main.zip), and extract it in a directory called `thesis-template` inside your thesis project directory\
 (the ZIP might contain a nested directory with repository and branch name; skip that nested directory and only use its content)
@@ -55,7 +55,10 @@ This thesis template is currently not available in the Typst package registry; t
 > [!NOTE]\
 > The usage example in the `example` directory contains a symlink. This might cause warnings when extracting the ZIP content of the repository or when adding it as Git submodule. However, to use the template for your own thesis the `example` directory is irrelevant and therefore any warnings related to it can be ignored.
 
-The recommended directory structure for your thesis looks like the following. The [Example](./example/) shows this in action.
+> [!TIP]\
+> The [Example](./example/) contains a complete example for how to use the template and how the result looks like.
+
+The recommended directory structure for your thesis looks like the following.
 
 - `thesis-template/`\
   the thesis template directory you set up with the steps above
@@ -64,7 +67,7 @@ The recommended directory structure for your thesis looks like the following. Th
   the main entry point of your thesis; this is the file you compile with Typst
 
 - `package-imports.typ` (optional)\
-  single file where you import all packages from Typst Universe, to manage their versions in a single place
+  single file where you import all packages from [Typst Universe](https://typst.app/universe/), to manage their versions in a single place
 
 - `bibliography.bib` / `bibliography.yml`\
   your bibliography / literature list
@@ -173,7 +176,7 @@ Thesis template parameters:
   - `signature` (`str` | `content`)\
     image of your handwritten signature; used for the "Eigenständigkeitserklärung"\
     Can be either:
-    - a file path, absolute to the Typst compile root (that is, a path starting with `/`), for example `/signature.svg` or `/signature.png` (recommended)
+    - (recommended) a file path, absolute to the Typst compile root (that is, a path starting with `/`), for example `/signature.svg` or `/signature.png`
     - an image, for example `image("my-signature.svg")` (in this case you manually have to set the proper image size, for example `height: 2.5em`)
 
     The image should consist only of the signature, ideally with transparent / white background and without excessive whitespace around it.
@@ -228,7 +231,7 @@ Thesis template parameters:
   Note also that `fail-on-todo` only affects reachable TODOs; if you have a TODO function call in a file but forget to include that file in the thesis, that TODO will not be noticed.
 
 > [!IMPORTANT]\
-> Some parts of the thesis have to be provided in German / English regardless of the language of the thesis. **Do not edit or remove them in the template.** See the [Documentation for Bachelor theses][fbi-abschlussarbeit-docs] of the h_da department of Computer Science.
+> Some parts of the thesis have to be provided in German / English regardless of the language of the thesis. **Do not edit or remove them.** See the [Documentation for Bachelor theses][fbi-abschlussarbeit-docs] of the h_da department of Computer Science.
 >
 > - no information should be removed from the title page
 > - German & English abstract\
