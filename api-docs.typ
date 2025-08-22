@@ -1,4 +1,4 @@
-// Creates documentation for the thesis template
+// Creates API documentation for the thesis template
 // Not intended to be used by users
 
 #import "@preview/tidy:0.4.3"

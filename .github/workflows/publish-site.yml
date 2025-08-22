@@ -1,0 +1,59 @@
+# Publish GitHub Pages site, consisting of API documentation and compiled example PDFs
+name: Publish site
+
+on:
+  push:
+    branches:
+      - main
+
+# Overwritten by the individual jobs
+permissions: {}
+
+jobs:
+  build-site:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read #  to fetch code (actions/checkout)
+
+    steps:
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+    - uses: typst-community/setup-typst@0215a551fa8714b290af7956b9973d010f1a5187  # v4.2.0
+      with:
+        typst-version: 0.13.1
+
+    - name: Build API docs
+      # TODO: Generate HTML instead of PDF once better supported by Typst
+      run: typst compile api-docs.typ .github/pages/api-docs.pdf
+
+    - name: Build thesis example
+      working-directory: example
+      run: typst compile thesis.typ ../.github/pages/examples/thesis.pdf
+
+    - name: Build cover example
+      working-directory: example
+      run: typst compile cover.typ ../.github/pages/examples/cover.pdf
+
+    - name: Upload site files as artifact
+      id: deployment
+      uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b  # v4.0.0
+      with:
+        path: .github/pages
+
+  # See https://github.com/actions/deploy-pages
+  deploy-site:
+    needs: build-site
+
+    permissions:
+      pages: write
+      id-token: write
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e  # v4.0.5
