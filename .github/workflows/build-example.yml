@@ -26,11 +26,14 @@ jobs:
           tag: v0.13.17
           fileName: typstyle-x86_64-unknown-linux-gnu
       - name: Rename typstyle binary
-        run: mv typstyle-x86_64-unknown-linux-gnu typstyle
+        run: |
+          mv typstyle-x86_64-unknown-linux-gnu typstyle
+          chmod +x typstyle
       - name: Check formatting
+        # Increase line width to 120, to also match default of Tinymist IDE extension
         # Note: Running in the root directory is a bit risky because there is recursive link from the `example/thesis-template`
         #   symlink back to the root directory; however it seems typstyle does not follow symlinks?
-        run: typstyle --diff .
+        run: ./typstyle --line-width 120 --diff .
 
   build-example:
     name: "Build example (Typst ${{ matrix.typst-version }})"
