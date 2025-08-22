@@ -22,8 +22,10 @@ jobs:
         typst-version: 0.13.1
 
     - name: Create output dir
-      # Note: This fails if dir already exists, which is a good thing since the dir should not exist yet
-      run: mkdir github-pages-temp
+      # Note: `github-pages-temp` should not exist yet
+      run: |
+        mkdir github-pages-temp
+        mkdir github-pages-temp/examples
 
     - name: Build API docs
       # TODO: Generate HTML instead of PDF once better supported by Typst
