@@ -52,11 +52,21 @@ This thesis template is currently not available in the Typst package registry ("
 
     To update the submodule in the future, use `git submodule update --recursive`. If you clone your thesis Git repository on a different machine, use `git clone --recurse-submodules ...`.
 
+- Use Git to 'download' the thesis template into your current project:
+
+    ```sh
+    git clone https://github.com/Marcono1234/hda-fbi-typst-thesis-template.git thesis-template
+    ```
+
+    Optional: Afterwards delete the `thesis-template/.git` directory to turn it into regular directory.
+
+    _Note:_ If you are already using Git for your project, the proper approach is to add the template as Git submodule, see the option above. Otherwise you might end up with a Git repository nested within a Git repository, which does not work properly (Git also warns about this on the console).
+
 > [!NOTE]\
 > The usage example in the `example` directory contains a symlink. This might cause warnings when extracting the ZIP content of the repository or when adding it as Git submodule. However, to use the template for your own thesis the `example` directory is irrelevant and therefore any warnings related to it can be ignored.
 
 > [!TIP]\
-> The [Example](./example/) contains a complete example for how to use the template and how the result looks like.
+> The [Example](./example/#readme) contains a complete example for how to use the template and how the result looks like.
 
 The recommended directory structure for your thesis looks like the following.
 
@@ -226,7 +236,7 @@ Thesis template parameters:\
 
 - `fail-on-todo` (`bool`)\
   whether to fail if any TODO function calls are still in the document\
-  The thesis template offers the custom `todo` and `todo-content` functions which you can use as placeholder or reminder for content which you have not written yet or want to rework later. See the [Example](./example/) for how to use them.
+  The thesis template offers the custom `todo` and `todo-content` functions which you can use as placeholder or reminder for content which you have not written yet or want to rework later. See the [Example](./example/#readme) for how to use them.
 
   **Important:** While these TODO functions can be helpful, don't fully rely on them and instead manually check at the end that you did not overlook any TODOs.\
   Note also that `fail-on-todo` only affects reachable TODOs; if you have a TODO function call in a file but forget to include that file in the thesis, that TODO will not be noticed.
@@ -266,7 +276,7 @@ If you want to create a cover page, it is recommended to create a `cover.typ` fi
 )
 ```
 
-Compiling that file will then create the cover page. The [Example](./example/) contains an example for this as well.
+Compiling that file will then create the cover page. The [Example](./example/#readme) contains an example for this as well.
 
 #### Building the thesis
 
