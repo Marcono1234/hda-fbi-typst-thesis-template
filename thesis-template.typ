@@ -122,23 +122,21 @@
   /// ```
   /// -> content
   abstract-en: none,
-  /// optional glossary list / list of abbreviations; uses the #link("https://typst.app/universe/package/glossarium/")[Glossarium] package
+  /// optional list of acronyms / abbreviations; uses the #link("https://typst.app/universe/package/glossarium/")[Glossarium] package (see its documentation for the expected format)
   ///
-  /// You can write the glossary list in a separate file and define it for example as `#let glossary-list = ( ... )` and then use Typst's `import` to include it:
+  /// You can write the acronyms list in a separate file and define it for example as `#let acronyms = ( ... )` and then use Typst's `import` to include it:
   ///
   /// ```typst
   /// #show: thesis-template.with(
-  ///   glossary-list: {
-  ///     import "content/glossary.typ": glossary-list
-  ///     glossary-list
+  ///   acronyms: {
+  ///     import "content/acronyms.typ": acronyms
+  ///     acronyms
   ///   },
   ///   ...
   /// )
   /// ```
   /// -> array
-  // TODO: Maybe rename this to `acronyms` / `acronyms-list` since this template uses it for acronyms
-  //   also change example and README then to recommend `acronyms.typ` as file
-  glossary-list: (),
+  acronyms: (),
   /// file path to the bibliography / literature list, absolute to the Typst compile root (that is, a path starting with `/`)
   ///
   /// The bibliography supports these formats:
@@ -202,7 +200,7 @@
   check-arg(abstract-de, content)
   check-arg(abstract-en, content)
   // Let Glossarium validate the structure of the entries
-  check-arg(glossary-list, (arg-any(),))
+  check-arg(acronyms, (arg-any(),))
   // Let Typst validate the bibliography source
   check-arg(bib, arg-any())
   check-arg(fail-on-todo, bool)
@@ -221,7 +219,7 @@
   )
   import "impl/frontbackmatter/acronyms.typ": set-up-acronyms, table-of-acronyms
 
-  set-up-acronyms(glossary-list)
+  set-up-acronyms(acronyms)
 
   set document(title: title, author: author)
 
@@ -278,7 +276,7 @@
   table-of-figures(language)
   table-of-tables(language)
   table-of-code-listings(language)
-  table-of-acronyms(language, glossary-list: glossary-list)
+  table-of-acronyms(language, acronyms)
 
   // Change page numbering back to normal
   show: set page(numbering: "1")

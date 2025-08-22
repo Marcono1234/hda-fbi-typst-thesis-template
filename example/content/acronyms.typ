@@ -1,5 +1,5 @@
-// Glossary list in format used by https://typst.app/universe/package/glossarium/
-#let glossary-list = (
+// List of acronyms / abbreviations in format used by https://typst.app/universe/package/glossarium/
+#let acronyms = (
   (
     key: "h-da",
     short: "h_da",

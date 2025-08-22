@@ -25,4 +25,4 @@ If you want to have the package imports -- and more importantly their version nu
 #import "/package-imports.typ": chronos
 ```
 
-By the way, the abbreviations from the glossary, such as #gls("h-da"), use an external package as well.
+By the way, the acronyms -- such as #gls("h-da") -- use an external package as well.

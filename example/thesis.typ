@@ -20,10 +20,10 @@
   restricted: true,
   abstract-de: include "content/abstract-de.typ",
   abstract-en: include "content/abstract-en.typ",
-  // Optionally provide a glossary
-  glossary-list: {
-    import "content/glossary.typ": glossary-list
-    glossary-list
+  // Optionally provide a list of acronyms / abbreviations
+  acronyms: {
+    import "content/acronyms.typ": acronyms
+    acronyms
   },
   // Set this to `true` when you are done with the thesis
   fail-on-todo: false,

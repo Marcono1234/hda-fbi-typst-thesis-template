@@ -1,19 +1,24 @@
 #import "../../package-imports.typ": glossarium.make-glossary, glossarium.print-glossary, glossarium.register-glossary
 
-#let set-up-acronyms(glossary-list) = {
-  if glossary-list.len() > 0 {
+#let set-up-acronyms(acronyms) = {
+  if acronyms.len() > 0 {
     // See Glossarium README
-    register-glossary(glossary-list)
+    register-glossary(acronyms)
   }
 }
 
-#let table-of-acronyms(language, glossary-list: ()) = {
+// Note: This is also recommended only for >= 3-5 abbreviations, see
+// https://fbi.h-da.de/fileadmin/Group_Dekanat/Dokumente/Studium/Group_Bachelor-Koordinator/BSc/empfehlungen_zu_abschlussarbeiten.pdf
+//   However if the template omitted it, then the descriptions for the acronyms would be missing
+//   Therefore always show this (except if empty); it is rather up to the user to not
+//   use it if their thesis contains only few acronyms
+#let table-of-acronyms(language, acronyms) = {
   let title = (
     de: "Abkürzungsverzeichnis",
     en: "Acronyms",
   ).at(language)
 
-  if glossary-list.len() > 0 {
+  if acronyms.len() > 0 {
     heading(numbering: none, outlined: false, bookmarked: true, title)
 
     v(1em)
@@ -21,7 +26,7 @@
     // See Glossarium README
     show: make-glossary
     print-glossary(
-      glossary-list,
+      acronyms,
       show-all: true,
       // Disable back-references; might not provide much value, and for frequently
       // used acronyms it might be a bit noisy

@@ -86,8 +86,8 @@ The recommended directory structure for your thesis looks like the following.
   - `abstract-en.typ`\
     abstract in English
 
-  - `glossary.typ` (optional)\
-    glossary / list of abbreviations
+  - `acronyms.typ` (optional)\
+    list of acronyms / abbreviations
 
   - `chapters/`
     - `01-introduction.typ`
@@ -200,16 +200,16 @@ Thesis template parameters:\
   )
   ```
 
-- `glossary-list` (`array`)\
-  optional glossary list / list of abbreviations; uses the [Glossarium](https://typst.app/universe/package/glossarium/) package
+- `acronyms` (`array`)\
+  optional list of acronyms / abbreviations; uses the [Glossarium](https://typst.app/universe/package/glossarium/) package (see its documentation for the expected format)
 
-  You can write the glossary list in a separate file and define it for example as `#let glossary-list = ( ... )` and then use Typst's `import` to include it:
+  You can write the acronyms list in a separate file and define it for example as `#let acronyms = ( ... )` and then use Typst's `import` to include it:
 
   ```typst
   #show: thesis-template.with(
-    glossary-list: {
-      import "content/glossary.typ": glossary-list
-      glossary-list
+    acronyms: {
+      import "content/acronyms.typ": acronyms
+      acronyms
     },
     ...
   )
