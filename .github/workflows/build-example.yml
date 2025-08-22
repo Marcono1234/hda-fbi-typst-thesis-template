@@ -1,0 +1,66 @@
+name: Build example
+
+on:
+  push:
+    branches-ignore:
+      # Ignore Dependabot branches because it will also open a pull request, which would cause the
+      # workflow to redundantly run twice
+      - dependabot/**
+  pull_request:
+  # Run on schedule; used for testing "latest" Typst version
+  schedule:
+    - cron: "15 14 5 * *"  # run once per month (at arbitrary day and time)
+
+permissions:
+  contents: read  # to fetch code (actions/checkout)
+
+jobs:
+  check-formatting:
+    name: Check formatting
+    runs-on: ubuntu-latest
+    # No need to run this on schedule because it uses a hardcoded typstyle version
+    if: ${{ github.event_name != 'schedule' }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+      # TODO: Simplify this by using https://github.com/typstyle-rs/typstyle-action?
+      #   but is not that actively maintained and does not support specifying typstyle version?
+      - name: Download typstyle
+        uses: robinraju/release-downloader@daf26c55d821e836577a15f77d86ddc078948b05  # v1.12
+        with:
+          repository: typstyle-rs/typstyle
+          tag: v0.13.17
+          fileName: typstyle-x86_64-unknown-linux-gnu
+      - name: Rename typstyle binary
+        run: mv typstyle-x86_64-unknown-linux-gnu typstyle
+      - name: Check formatting
+        # Note: Running in the root directory is a bit risky because there is recursive link from the `example/thesis-template`
+        #   symlink back to the root directory; however it seems typstyle does not follow symlinks?
+        run: typstyle --diff .
+
+  build-example:
+    name: "Build example (Typst ${{ matrix.typst-version }})"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        typst-version: [ "0.13.1", "latest" ]
+    # For scheduled workflow runs, only run with latest Typst version to check for future incompatibilities
+    if: ${{ github.event_name != 'schedule' || matrix.typst-version == 'latest' }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+      - uses: typst-community/setup-typst@0215a551fa8714b290af7956b9973d010f1a5187  # v4.2.0
+        with:
+          typst-version: ${{ matrix.typst-version }}
+          # Note: Could possibly specify `cache-dependency-path: example/package-imports.typ` but not sure if
+          #   that yields any performance improvement, and also for the hash calculation it would not consider
+          #   changes to the versions of transitive package imports (in the thesis template `package-imports.typ`)
+
+      - name: Build thesis
+        working-directory: example
+        # TODO: Once supported fail on warnings, see https://github.com/typst/typst/issues/6787
+        run: typst compile thesis.typ thesis.pdf
+
+      - name: Build cover
+        working-directory: example
+        # TODO: Once supported fail on warnings, see https://github.com/typst/typst/issues/6787
+        run: typst compile cover.typ cover.pdf

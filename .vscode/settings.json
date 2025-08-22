@@ -1,0 +1,11 @@
+{
+    // Overwrite root path to allow `example` directory to act like a standalone project,
+    // see related https://github.com/Myriad-Dreamin/tinymist/issues/2038
+    // Alternative might be a multi-root workspace, but that shows the project structure in
+    // a confusing way then, see https://github.com/Myriad-Dreamin/tinymist/issues/2038#issuecomment-3196093079
+    // Important: This Tinymist configuration is only relevant for this thesis template repository;
+    //   it is NOT needed for your thesis project
+    "tinymist.rootPath": "${workspaceFolder}/example",
+
+    "cSpell.diagnosticLevel": "Hint",
+}

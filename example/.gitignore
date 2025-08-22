@@ -1,0 +1,5 @@
+# Generated PDF files
+/*.pdf
+
+# Optional: Ignore signature file to prevent misuse when project is published as Git repository
+# /signature.svg

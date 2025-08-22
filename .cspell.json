@@ -1,0 +1,15 @@
+// cSpell Settings, see https://cspell.org/docs/Configuration
+// Used by https://streetsidesoftware.com/vscode-spell-checker/
+{
+    "version": "0.2",
+    "language": "en",
+    "overrides": [
+        {
+            "language": "en,de",
+            "filename": [
+                "impl/frontbackmatter/blocking-notice.typ",
+                "impl/frontbackmatter/declaration.typ"
+            ]
+        }
+    ]
+}

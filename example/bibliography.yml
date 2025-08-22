@@ -1,0 +1,41 @@
+# Bibliography in Hayagriva format, see https://github.com/typst/hayagriva/blob/main/docs/file-format.md
+
+# Typst also supports BibLaTeX files, see https://typst.app/docs/reference/model/bibliography/#parameters-sources
+# Alternatively you can convert BibLaTeX to the Hayagriva format with `hayagriva literature.bib`,
+# see https://github.com/typst/hayagriva/?tab=readme-ov-file#installation
+
+"bib:typst":
+  type: repository
+  title: Typst
+  author:
+  - Mädje, Laurenz
+  - Haug, Martin
+  - name: The Typst Project Developers
+  url:
+    value: https://github.com/typst/typst
+    date: 2025-07-31 # last accessed date
+
+"bib:typst-thesis-madje":
+  type: thesis
+  genre: Master's thesis
+  title: A Programmable Markup Language for Typesetting
+  author: Mädje, Laurenz
+  publisher:
+    name: Technische Universität Berlin
+    location: Berlin, Germany
+  date: 2022
+  url:
+    value: https://laurmaedje.github.io/programmable-markup-language-for-typesetting.pdf
+    date: 2025-07-31 # last accessed date
+
+"bib:typst-thesis-haug":
+  type: thesis
+  genre: Master's thesis
+  title: Fast Typesetting with Incremental Compilation
+  author: Haug, Martin
+  publisher:
+    name: Technische Universität Berlin
+    location: Berlin, Germany
+  date: 2022
+  serial-number:
+    doi: "10.13140/RG.2.2.15606.88642"

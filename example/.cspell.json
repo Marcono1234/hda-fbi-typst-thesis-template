@@ -1,0 +1,14 @@
+// cSpell Settings, see https://cspell.org/docs/Configuration
+// Used by https://streetsidesoftware.com/vscode-spell-checker/
+{
+    "version": "0.2",
+    "language": "en",
+    "overrides": [
+        {
+            "language": "de",
+            "filename": [
+                "content/abstract-de.typ"
+            ]
+        }
+    ]
+}
