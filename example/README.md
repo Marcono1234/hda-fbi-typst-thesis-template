@@ -5,6 +5,11 @@ This directory shows how the thesis template can be used. It also highlights som
 The entrypoints are [`thesis.typ`](./thesis.typ) (for the thesis) and [`cover.typ`](./cover.typ) (for the hardcover content).\
 `thesis-template` contains the content of the template, that is, the content of the root directory of this repository.
 
+> [!TIP]\
+> Have a look at the generated PDF files here:
+> - [thesis](https://marcono1234.github.io/hda-fbi-typst-thesis-template/examples/thesis.pdf)
+> - [cover](https://marcono1234.github.io/hda-fbi-typst-thesis-template/examples/cover.pdf)
+
 > [!IMPORTANT]\
 > This example is only intended to show how the thesis template can be used. Do not use it as reference for how to structure your thesis; instead have a look at Prof. von Rüden's ["Empfehlungen zu Abschlussarbeiten"][fbi-abschlussarbeit-recommendations] and the material from the Scientific Writing courses (Prof. Zander provides [some of it publicly](https://zander-swcs.netlify.app/)) or talk to your professor if you are unsure about something.
 

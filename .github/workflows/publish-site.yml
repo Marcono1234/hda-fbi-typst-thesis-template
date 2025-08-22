@@ -21,23 +21,27 @@ jobs:
       with:
         typst-version: 0.13.1
 
+    - name: Create output dir
+      # Note: This fails if dir already exists, which is a good thing since the dir should not exist yet
+      run: mkdir github-pages-temp
+
     - name: Build API docs
       # TODO: Generate HTML instead of PDF once better supported by Typst
-      run: typst compile api-docs.typ .github/pages/api-docs.pdf
+      run: typst compile api-docs.typ github-pages-temp/api-docs.pdf
 
     - name: Build thesis example
       working-directory: example
-      run: typst compile thesis.typ ../.github/pages/examples/thesis.pdf
+      run: typst compile thesis.typ ../github-pages-temp/examples/thesis.pdf
 
     - name: Build cover example
       working-directory: example
-      run: typst compile cover.typ ../.github/pages/examples/cover.pdf
+      run: typst compile cover.typ ../github-pages-temp/examples/cover.pdf
 
     - name: Upload site files as artifact
       id: deployment
       uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b  # v4.0.0
       with:
-        path: .github/pages
+        path: github-pages-temp
 
   # See https://github.com/actions/deploy-pages
   deploy-site:

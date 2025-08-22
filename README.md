@@ -12,7 +12,7 @@ The template is based on:
 - Prof. von Rüden's ["Empfehlungen zu Abschlussarbeiten"][fbi-abschlussarbeit-recommendations]
 
 > [!IMPORTANT]\
-> Before using this template, clarify with your professor whether they permit usage of Typst and this template, or whether they insist on usage of the official LaTeX template. Also keep in mind that Typst is still a relatively new language, so chances are lower that fellow students or professors can help you in case you encounter problems. On the other hand, Typst might be easier to use and has an [official forum](https://forum.typst.app/) where you can find a lot of information and ask questions.
+> Before using this template, clarify with your professor whether they permit usage of Typst and this template, or whether they insist on usage of the official LaTeX template. Also keep in mind that Typst is still a relatively new language, so chances are lower that fellow students or professors can help you in case you encounter problems. On the other hand, Typst might be easier to set up and use than LaTeX and has an [official forum](https://forum.typst.app/) where you can find a lot of information and ask questions.
 >
 > Also note that professors might have additional requirements or preferences for the layout (though it might not affect grading). For example some professors might prefer large figures to 'float' to the top of pages (can be achieved with [Typst's `figure.placement`](https://typst.app/docs/reference/model/figure/#parameters-placement)). Ask your professor about this, and listen to their feedback when you hand in the first drafts of your thesis.
 
@@ -113,7 +113,8 @@ In `thesis.typ` you then import and apply the thesis template like this:
 ...
 ```
 
-Thesis template parameters:
+Thesis template parameters:\
+([generated API documentation](https://marcono1234.github.io/hda-fbi-typst-thesis-template/api-docs.pdf))
 
 - `language` (`str`)\
   language of the thesis, can be either German (`"de"`) or English (`"en"`)\
