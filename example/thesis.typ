@@ -6,8 +6,8 @@
   language: lang-en,
   title: [Creating a thesis with Typst],
   degree: degree-bachelor,
-  prof-main: "Prof. Dr. Jane Doe",
-  prof-second: "Prof. Dr. John Smith",
+  prof-main: (name: "Prof. Dr. Jane Doe", female: true),
+  prof-second: (name: "Prof. Dr. John Smith", female: false),
   author: "Max Mustermann",
   student-id: "1234567",
   signing-data: (

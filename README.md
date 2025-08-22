@@ -163,11 +163,23 @@ Thesis template parameters:\
   default: "Hochschule Darmstadt"\
   _Note:_ Don't translate this when writing the thesis in English; it is shown on the title page which is usually always in German, regardless of language.
 
-- `prof-main` (`str`)\
-  full name of your main professor ('Referent')
+- `prof-main` (`dictionary`)\
+  your main professor ('Referent' / 'Referentin'):
 
-- `prof-second` (`str`)\
-  full name of your second professor ('Korreferent')
+  - `name` (`str`)\
+    full name of the professor, e.g. "Prof. Dr. Jane Doe"
+
+  - `female` (`bool`)\
+    whether to use the female ("Referentin") or the male ("Referent") noun
+
+- `prof-second` (`dictionary`)\
+   your second professor ('Korreferent' / 'Korreferentin'):
+
+  - `name` (`str`)\
+     full name of the professor, e.g. "Prof. Dr. Jane Doe"
+
+  - `female` (`bool`)\
+     whether to use the female ("Korreferentin") or the male ("Korreferent") noun
 
 - `author` (`str`)\
   your name

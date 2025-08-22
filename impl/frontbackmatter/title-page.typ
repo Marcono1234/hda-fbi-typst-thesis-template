@@ -6,8 +6,8 @@
   degree: "",
   faculty: "",
   university: "",
-  prof-main: "",
-  prof-second: "",
+  prof-main: (:),
+  prof-second: (:),
   author: "",
   student-id: "",
 ) = {
@@ -70,10 +70,10 @@
       column-gutter: 0.5em,
       row-gutter: 10pt,
       ..(
-        strong("Referent:"),
-        prof-main,
-        strong("Korreferent:"),
-        prof-second,
+        strong(if prof-main.female { "Referentin" } else { "Referent" } + ":"),
+        prof-main.name,
+        strong(if prof-second.female { "Korreferentin" } else { "Korreferent" } + ":"),
+        prof-second.name,
       ).map(it => align(left, it))
     ),
   )

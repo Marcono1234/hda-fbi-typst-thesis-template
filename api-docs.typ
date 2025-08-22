@@ -9,10 +9,13 @@
 #let show-doc(file) = {
   let style = tidy.styles.default
   let show-type(t) = {
-    let type-name = if (t == str) {
-      // Show as "str" instead of "string" (which is what `str(t)` would create)
-      // Note: Affects a few more types (e.g. `bool` and "boolean"), but they are not
-      //   used yet in documentation, so only cover them once they are used
+    // Special casing for types where `str(t)` is not equal to the type name
+    // For example `str(bool) == "boolean"`
+    // Note: Might affect a few more types, but they are not used yet in
+    // documentation, so only cover them once they are used
+    let type-name = if (t == bool) {
+      "bool"
+    } else if (t == str) {
       "str"
     } else {
       str(t)

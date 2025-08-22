@@ -60,11 +60,23 @@
   /// _Note:_ Don't translate this when writing the thesis in English; it is shown on the title page which is usually always in German, regardless of language.
   /// -> str
   university: "Hochschule Darmstadt",
-  /// full name of your main professor ('Referent')
-  /// -> str
+  /// your main professor ('Referent' / 'Referentin'):
+  ///
+  /// - `name` (#tidy-show-type(str))\
+  ///   full name of the professor, e.g. "Prof. Dr. Jane Doe"
+  ///
+  /// - `female` (#tidy-show-type(bool))\
+  ///   whether to use the female ("Referentin") or the male ("Referent") noun
+  /// -> dictionary
   prof-main: none,
-  /// full name of your second professor ('Korreferent')
-  /// -> str
+  /// your second professor ('Korreferent' / 'Korreferentin'):
+  ///
+  /// - `name` (#tidy-show-type(str))\
+  ///   full name of the professor, e.g. "Prof. Dr. Jane Doe"
+  ///
+  /// - `female` (#tidy-show-type(bool))\
+  ///   whether to use the female ("Korreferentin") or the male ("Korreferent") noun
+  /// -> dictionary
   prof-second: none,
   /// your name
   /// -> str
@@ -184,8 +196,9 @@
   check-arg(degree, str)
   check-arg(faculty, str)
   check-arg(university, str)
-  check-arg(prof-main, str)
-  check-arg(prof-second, str)
+  let prof-validator = ("name": str, "female": bool)
+  check-arg(prof-main, prof-validator)
+  check-arg(prof-second, prof-validator)
   check-arg(author, str)
   check-arg(student-id, str)
   // TODO: Maybe use https://typst.app/universe/package/elembic to define the fields of this struct?
