@@ -7,6 +7,7 @@
 // #import "@preview/chronos:0.2.1"
 // ```
 
-// TODO: Is there a better way to organize imports in a single place than this `package-imports.typ` approach?
+// Note: This approach for managing imports in a single place seems to be the recommended
+// one currently, see https://forum.typst.app/t/how-to-manage-package-dependencies-in-a-single-place/5767
 
 #import "@preview/glossarium:0.5.6"
