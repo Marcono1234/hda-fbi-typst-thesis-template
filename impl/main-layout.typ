@@ -79,8 +79,10 @@
   #set page(header-ascent: 30%)
   #set page(
     header: context {
+      let current-page = here().page()
+
       // Find first heading of level 1 on current page
-      let heading-lvl-1 = query(heading.where(level: 1)).find(h => h.location().page() == here().page())
+      let heading-lvl-1 = query(heading.where(level: 1)).find(h => h.location().page() == current-page)
       if heading-lvl-1 != none {
         if heading-lvl-1.numbering != none {
           // If there is a level 1 heading (chapter heading) on this page, set the header
@@ -101,7 +103,7 @@
 
         let heading-lvl-2-selector = heading.where(level: 2)
 
-        // TODO: Workaround until https://github.com/typst/typst/pull/5970 is available
+        // TODO: Replace once https://github.com/typst/typst/pull/5970 is available
         let last-or-none(array) = {
           if array.len() == 0 { none } else { array.last() }
         }
@@ -114,9 +116,11 @@
         }
 
         let heading-lvl-2 = last-or-none(
-          // Consider any lvl-2 headings before or on the current page; this includes headings which
-          // start in the middle of the current page
-          query(heading-lvl-2-selector).filter(h => h.location().page() <= here().page()),
+          // Consider any lvl-2 headings before or on the current page
+          // Note that in case there a multiple headings on the current page it uses the last one;
+          // if that is not desired, could try to get the first lvl-2 heading on the current page
+          // and if none exists fall back to the last heading on previous pages
+          query(heading-lvl-2-selector).filter(h => h.location().page() <= current-page),
         )
 
         let get-heading-text(h) = {
