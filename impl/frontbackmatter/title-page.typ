@@ -26,6 +26,9 @@
   set par(leading: 1em)
 
   // Add a dummy heading for an entry in the PDF's bookmarks
+  // TODO: Once supported use proper Typst API for this, see https://github.com/typst/typst/issues/1226
+  //   note that the `hide(...)` call here still takes up space, so when removing it might need explicit
+  //   vertical space here instead
   hide(heading(numbering: none, outlined: false, bookmarked: true, "Titelblatt"))
 
   // --- Title Page ---
