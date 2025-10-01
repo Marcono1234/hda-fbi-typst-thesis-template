@@ -24,7 +24,7 @@
   }
 
   let docs = tidy.parse-module(
-    read("/" + file),
+    read("/template/" + file),
     name: file,
     require-all-parameters: true,
     // Export custom `tidy-show-type` function to allow doc comments to render type labels

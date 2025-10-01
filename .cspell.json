@@ -7,8 +7,8 @@
         {
             "language": "en,de",
             "filename": [
-                "impl/frontbackmatter/blocking-notice.typ",
-                "impl/frontbackmatter/declaration.typ"
+                "template/impl/frontbackmatter/blocking-notice.typ",
+                "template/impl/frontbackmatter/declaration.typ"
             ]
         }
     ]

@@ -25,6 +25,14 @@ The template is based on:
 > The thesis template currently only supports one-sided printing. Printing two-sided likely causes undesired results such as incorrect margins.\
 > If you are interested in two-sided printing, have a look at [this feature request](https://github.com/Marcono1234/hda-fbi-typst-thesis-template/issues/2). However, you should clarify with your professor if they permit two-sided printing in the first place.
 
+## Repository structure
+
+- [`template/`](./template/)\
+  The actual template source.
+- [`example/`](./example/)\
+  Example usage of the template.
+
+
 ## Usage
 
 ### Setting up Typst
@@ -41,7 +49,7 @@ This thesis template is currently not available in the Typst package registry ("
 
 This thesis template is currently not available in the Typst package registry ("Typst Universe"); the recommended way to use it is to either:
 
-- [Download the GitHub repository as ZIP](https://github.com/Marcono1234/hda-fbi-typst-thesis-template/archive/refs/heads/main.zip), and extract it in a directory called `thesis-template` inside your thesis project directory\
+- [Download the GitHub repository as ZIP](https://github.com/Marcono1234/hda-fbi-typst-thesis-template/archive/refs/heads/main.zip), and extract the content of the `template` directory in a directory called `thesis-template` inside your thesis project directory\
 (the ZIP might contain a nested directory with repository and branch name; skip that nested directory and only use its content)
 
 - When using Git: Add the thesis template as Git submodule to your thesis project:
@@ -50,6 +58,7 @@ This thesis template is currently not available in the Typst package registry ("
     git submodule add -- https://github.com/Marcono1234/hda-fbi-typst-thesis-template.git thesis-template
     ```
 
+    When using this approach your imports have to import from `thesis-template/template/...`.\
     To update the submodule in the future, use `git submodule update --recursive`. If you clone your thesis Git repository on a different machine, use `git clone --recurse-submodules ...`.
 
 - Use Git to 'download' the thesis template into your current project:
@@ -59,6 +68,8 @@ This thesis template is currently not available in the Typst package registry ("
     ```
 
     Optional: Afterwards delete the `thesis-template/.git` directory to turn it into regular directory.
+
+    When using this approach your imports have to import from `thesis-template/template/...`.
 
     _Note:_ If you are already using Git for your project, the proper approach is to add the template as Git submodule, see the option above. Otherwise you might end up with a Git repository nested within a Git repository, which does not work properly (Git also warns about this on the console).
 
