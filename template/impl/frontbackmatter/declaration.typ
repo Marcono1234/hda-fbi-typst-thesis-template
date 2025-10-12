@@ -28,7 +28,9 @@
   // Signature can be provided either as content (for custom styling) or as image path
   let signature-data = signing-data.signature
   let signature-image = if type(signature-data) == content { signature-data } else {
-    image(signature-data, height: 2.5em)
+    // Use German alt text since the whole page is in German
+    let signature-alt = "Unterschrift"
+    image(signature-data, alt: signature-alt, height: 2.5em)
   }
   let signature = pad(3pt, signature-image)
 

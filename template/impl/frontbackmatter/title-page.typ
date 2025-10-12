@@ -31,8 +31,9 @@
   //   vertical space here instead
   hide(heading(numbering: none, outlined: false, bookmarked: true, "Titelblatt"))
 
-  // --- Title Page ---
-  align(center, image("../logo_h-da.svg", width: 52%))
+  // Use German alt text since the whole page is in German
+  let logo-alt = "h_da Logo"
+  align(center, image("../logo_h-da.svg", alt: logo-alt, width: 52%))
 
 
   v(5mm)
