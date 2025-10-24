@@ -8,4 +8,8 @@
     "tinymist.rootPath": "${workspaceFolder}/example",
 
     "cSpell.diagnosticLevel": "Hint",
+
+    // Ignore symlinks because that would lead to duplicate results for `example/` directory
+    // which has symlink to template
+    "search.followSymlinks": false,
 }
