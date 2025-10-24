@@ -242,7 +242,7 @@
   // Title page
   import "impl/frontbackmatter/title-page.typ": title-page
   title-page(
-    title: title,
+    title-content: title,
     degree: degree,
     faculty: faculty,
     university: university,

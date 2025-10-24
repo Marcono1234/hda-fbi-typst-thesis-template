@@ -2,7 +2,7 @@
 #import "../main-layout.typ": body-font, sans-font
 
 #let title-page(
-  title: "",
+  title-content: "",
   degree: "",
   faculty: "",
   university: "",
@@ -47,7 +47,8 @@
 
   v(10mm)
 
-  align(center, text(font: sans-font, size: 1.5em, weight: 700, title))
+  show title: set text(font: sans-font, weight: 700)
+  align(center, title(title-content))
 
   v(15mm)
 

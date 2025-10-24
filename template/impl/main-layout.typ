@@ -103,25 +103,20 @@
 
         let heading-lvl-2-selector = heading.where(level: 2)
 
-        // TODO: Replace once https://github.com/typst/typst/pull/5970 is available
-        let last-or-none(array) = {
-          if array.len() == 0 { none } else { array.last() }
-        }
-
         // If there is a previous lvl-1 heading, ensure the lvl-2 heading comes afterwards
         // (e.g. to avoid using unrelated lvl-2 heading if subsequent lvl-1 heading has no subheadings)
-        let last-heading-lvl-1 = last-or-none(query(heading.where(level: 1).before(here())))
+        let last-heading-lvl-1 = query(heading.where(level: 1).before(here())).last(default: none)
         if last-heading-lvl-1 != none {
           heading-lvl-2-selector = heading-lvl-2-selector.after(last-heading-lvl-1.location())
         }
 
-        let heading-lvl-2 = last-or-none(
-          // Consider any lvl-2 headings before or on the current page
-          // Note that in case there a multiple headings on the current page it uses the last one;
-          // if that is not desired, could try to get the first lvl-2 heading on the current page
-          // and if none exists fall back to the last heading on previous pages
-          query(heading-lvl-2-selector).filter(h => h.location().page() <= current-page),
-        )
+        // Consider any lvl-2 headings before or on the current page
+        // Note that in case there a multiple headings on the current page it uses the last one;
+        // if that is not desired, could try to get the first lvl-2 heading on the current page
+        // and if none exists fall back to the last heading on previous pages
+        let heading-lvl-2 = query(heading-lvl-2-selector)
+          .filter(h => h.location().page() <= current-page)
+          .last(default: none)
 
         let get-heading-text(h) = {
           let header-string = (

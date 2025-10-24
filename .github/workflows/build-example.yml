@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        typst-version: [ "0.13.1" ]
+        typst-version: [ "0.14.0" ]
         allowed-to-fail: [ false ]
         include:
           - typst-version: "latest"
@@ -60,6 +60,7 @@ jobs:
       - name: Build thesis
         working-directory: example
         # TODO: Once supported fail on warnings, see https://github.com/typst/typst/issues/6787
+        # TODO: Maybe in the future use `--pdf-standard ua-1` (or ua-2) to check accessibility compliance
         run: typst compile thesis.typ thesis.pdf
 
       - name: Build cover
