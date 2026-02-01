@@ -16,7 +16,7 @@ jobs:
     name: Check formatting
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       # TODO: Simplify this by using https://github.com/typstyle-rs/typstyle-action?
       #   but is not that actively maintained and does not support specifying typstyle version?
       - name: Download typstyle
@@ -49,7 +49,7 @@ jobs:
             allowed-to-fail: true
 
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - uses: typst-community/setup-typst@48aeee7543d37f01afd1ffb27307dc277387ba13  # v4.3.1
         with:
           typst-version: ${{ matrix.typst-version }}
