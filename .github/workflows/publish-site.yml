@@ -16,7 +16,7 @@ jobs:
       contents: read #  to fetch code (actions/checkout)
 
     steps:
-    - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  # v6.0.1
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
     - uses: typst-community/setup-typst@48aeee7543d37f01afd1ffb27307dc277387ba13  # v4.3.1
       with:
         typst-version: 0.14.0
