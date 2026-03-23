@@ -21,8 +21,6 @@
   if acronyms.len() > 0 {
     heading(numbering: none, outlined: false, bookmarked: true, title)
 
-    v(1em)
-
     // See Glossarium README
     show: make-glossary
     print-glossary(

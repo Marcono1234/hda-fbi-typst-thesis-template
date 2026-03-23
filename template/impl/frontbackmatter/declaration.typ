@@ -4,19 +4,17 @@
 
   heading(numbering: none, outlined: false, bookmarked: true, "Erklärung")
 
-  v(1em)
-
   // Must be in German, regardless of language of thesis
   // Based on https://github.com/mbredel/thesis-template/blob/master/frontbackmatter/Declaration.tex
   // (which is based on https://h-da.de/fileadmin/h_da/Hochschule/Presse_Publikationen/Hochschulanzeiger/2019/ABPO_AEnderung_2019-07-02.pdf "Anlage 4: Plagiate"?)
   [
-    Ich versichere hiermit, dass ich die vorliegende Arbeit selbstständig verfasst und keine anderen als die im Literaturverzeichnis angegebenen Quellen benutzt habe. \
-    #v(0.1em)
-    Alle Stellen, die wörtlich oder sinngemäß aus veröffentlichten oder noch nicht veröffentlichten Quellen entnommen sind, sind als solche kenntlich gemacht. \
-    #v(0.1em)
-    Die Zeichnungen oder Abbildungen in dieser Arbeit sind von mir selbst erstellt worden oder mit einem entsprechenden Quellennachweis versehen. \
-    #v(0.1em)
-    Diese Arbeit ist in gleicher oder ähnlicher Form noch bei keiner anderen Prüfungsbehörde eingereicht worden. \
+    Ich versichere hiermit, dass ich die vorliegende Arbeit selbstständig verfasst und keine anderen als die im Literaturverzeichnis angegebenen Quellen benutzt habe.
+
+    Alle Stellen, die wörtlich oder sinngemäß aus veröffentlichten oder noch nicht veröffentlichten Quellen entnommen sind, sind als solche kenntlich gemacht.
+
+    Die Zeichnungen oder Abbildungen in dieser Arbeit sind von mir selbst erstellt worden oder mit einem entsprechenden Quellennachweis versehen.
+
+    Diese Arbeit ist in gleicher oder ähnlicher Form noch bei keiner anderen Prüfungsbehörde eingereicht worden.
   ]
 
   v(5mm)

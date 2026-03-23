@@ -273,8 +273,6 @@
     set text(lang: lang)
     heading(numbering: none, outlined: false, bookmarked: true, title)
 
-    v(1em)
-
     doc
   }
 

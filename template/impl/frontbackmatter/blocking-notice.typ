@@ -4,8 +4,6 @@
 
   heading(numbering: none, outlined: false, bookmarked: true, "Sperrvermerk")
 
-  v(1em)
-
   // Must be in German, regardless of language of thesis
   // Taken from https://fbi.h-da.de/fileadmin/Group_Dekanat/Dokumente/Fachbereich/Gremien/Group_Pruefungsausschuss/Formulare/Studenten/2023-10_Anmeldung_04_Thesis.pdf
   // Changed: added "Autorin" as alternative to "Autor"; for "Referentin/Referent" that already existed

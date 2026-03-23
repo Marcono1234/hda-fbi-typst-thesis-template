@@ -6,7 +6,7 @@
     // https://fbi.h-da.de/fileadmin/Group_Dekanat/Dokumente/Studium/Group_Bachelor-Koordinator/BSc/empfehlungen_zu_abschlussarbeiten.pdf
     if elements.len() >= 3 {
       heading(numbering: none, outlined: false, bookmarked: true, title)
-      v(1em)
+
       outline(
         title: none,
         target: target,
@@ -51,7 +51,7 @@
   // TODO: Apply this reduced margins also to other `table-of-...`? Or only keep it for Table of Contents?
   set page(margin: (left: 25mm, right: 25mm, top: 25mm, bottom: 30mm))
   heading(numbering: none, outlined: false, bookmarked: true, title)
-  v(1em)
+
   outline(
     title: none,
     indent: 2em,
