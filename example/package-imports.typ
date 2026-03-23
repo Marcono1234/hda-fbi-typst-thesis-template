@@ -2,4 +2,4 @@
 
 #import "/thesis-template/package-imports.typ": *
 
-#import "@preview/chronos:0.2.1"
+#import "@preview/chronos:0.3.0"

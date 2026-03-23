@@ -4,10 +4,10 @@
 // import from this file here and declare your own imports, for example:
 // ```
 // #import "/thesis-template/package-imports.typ": *
-// #import "@preview/chronos:0.2.1"
+// #import "@preview/chronos:0.3.0"
 // ```
 
 // Note: This approach for managing imports in a single place seems to be the recommended
 // one currently, see https://forum.typst.app/t/how-to-manage-package-dependencies-in-a-single-place/5767
 
-#import "@preview/glossarium:0.5.6"
+#import "@preview/glossarium:0.5.10"

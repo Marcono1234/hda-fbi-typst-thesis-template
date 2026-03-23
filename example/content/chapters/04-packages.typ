@@ -6,7 +6,7 @@ In addition to Typst's built-in functionality, you can use 'packages' created by
 
 Let's say you want some sequence diagrams. Then first import the package (in this case `chronos`), and then use its functions:
 
-#import "@preview/chronos:0.2.1"
+#import "@preview/chronos:0.3.0"
 #figure(caption: [Creating a thesis], chronos.diagram({
   import chronos: *
   _par("A", display-name: "User")

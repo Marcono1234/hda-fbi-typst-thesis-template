@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
     - uses: typst-community/setup-typst@48aeee7543d37f01afd1ffb27307dc277387ba13  # v4.3.1
       with:
-        typst-version: 0.14.0
+        typst-version: 0.14.2
 
     - name: Create output dir
       # Note: `github-pages-temp` should not exist yet

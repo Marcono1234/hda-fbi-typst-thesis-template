@@ -25,7 +25,7 @@ The template is based on:
 
 ### Setting up Typst
 
-Required Typst version: 0.14.0 or newer
+Required Typst version: 0.14.2 or newer
 
 There are multiple ways to use Typst:
 

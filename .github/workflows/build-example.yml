@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        typst-version: [ "0.14.0" ]
+        typst-version: [ "0.14.2" ]
         allowed-to-fail: [ false ]
         include:
           - typst-version: "latest"
