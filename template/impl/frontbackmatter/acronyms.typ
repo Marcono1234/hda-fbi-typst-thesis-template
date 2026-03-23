@@ -8,7 +8,7 @@
 }
 
 // Note: This is also recommended only for >= 3-5 abbreviations, see
-// https://fbi.h-da.de/fileadmin/Group_Dekanat/Dokumente/Studium/Group_Bachelor-Koordinator/BSc/empfehlungen_zu_abschlussarbeiten.pdf
+// https://www.fbi.h-da.de/fileadmin/user_upload/fachbereich-informatik/Main_Menu/Studieren/Studium/Organisatorisches/Abschlussphase/Bachelor/empfehlungen_zu_abschlussarbeiten.pdf
 //   However if the template omitted it, then the descriptions for the acronyms would be missing
 //   Therefore always show this (except if empty); it is rather up to the user to not
 //   use it if their thesis contains only few acronyms

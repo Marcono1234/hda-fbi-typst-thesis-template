@@ -1,4 +1,4 @@
-// Based on https://fbi.h-da.de/fileadmin/Group_Dekanat/Dokumente/Studium/Group_Bachelor-Koordinator/BSc/empfehlungen_zu_abschlussarbeiten.pdf
+// Based on https://www.fbi.h-da.de/fileadmin/user_upload/fachbereich-informatik/Main_Menu/Studieren/Studium/Organisatorisches/Abschlussphase/Bachelor/empfehlungen_zu_abschlussarbeiten.pdf
 
 // These fonts are included in the Typst CLI, see https://typst.app/docs/reference/text/text/#parameters-font
 #let body-font = "New Computer Modern"
@@ -8,10 +8,11 @@
 
 #let main-layout(language: none, doc) = [
   #set page(
-    // Margins as recommended by https://fbi.h-da.de/fileadmin/Group_Dekanat/Dokumente/Studium/Group_Bachelor-Koordinator/BSc/empfehlungen_zu_abschlussarbeiten.pdf
+    // Margins as recommended by https://www.fbi.h-da.de/fileadmin/user_upload/fachbereich-informatik/Main_Menu/Studieren/Studium/Organisatorisches/Abschlussphase/Bachelor/empfehlungen_zu_abschlussarbeiten.pdf
     // TODO: These margins assume that the thesis is printed on one side
     //   Maybe consider supporting two-sided printing but then would also need blank pages
     //   at the beginning (and possibly when starting new chapter)?
+    //   see also https://github.com/Marcono1234/hda-fbi-typst-thesis-template/issues/2
     margin: (left: 3.5cm, right: 3cm, top: 3cm, bottom: 3cm),
     number-align: center,
   )

@@ -3,7 +3,7 @@
     let elements = query(target)
 
     // Only show if there are multiple elements, see recommendation in section "Abbildungs-, Tabellen- und Quellcodeverzeichnis" of
-    // https://fbi.h-da.de/fileadmin/Group_Dekanat/Dokumente/Studium/Group_Bachelor-Koordinator/BSc/empfehlungen_zu_abschlussarbeiten.pdf
+    // https://www.fbi.h-da.de/fileadmin/user_upload/fachbereich-informatik/Main_Menu/Studieren/Studium/Organisatorisches/Abschlussphase/Bachelor/empfehlungen_zu_abschlussarbeiten.pdf
     if elements.len() >= 3 {
       heading(numbering: none, outlined: false, bookmarked: true, title)
 

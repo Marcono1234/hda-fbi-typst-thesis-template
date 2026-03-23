@@ -131,7 +131,7 @@ See the [API documentation](./api-docs.md) for the details about the `thesis-tem
 
 #### Cover
 
-This thesis template also provides a function for creating the content of the hardcover of the thesis, see the `cover-page` function in `thesis-template.typ`. It follows the [Documentation for Bachelor theses][fbi-abschlussarbeit-docs] (FAQ "Wie muss die Arbeit gebunden sein?"), but as mentioned there you should clarify the content of the cover with your professor.
+This thesis template also provides a function for creating the content of the hardcover of the thesis, see the `cover-page` function in `thesis-template.typ`. It follows the [Documentation for Bachelor theses][fbi-abschlussarbeit-docs] (FAQ "Wie muss die Arbeit gebunden sein?" / "How must the work be bound?"), but as mentioned there you should clarify the content of the cover with your professor.
 
 > [!NOTE]\
 > It depends on the copy shop where you are printing your thesis how / in which format they expect the cover page. They might even ask you to enter the information manually on-site. Therefore only use the cover page as rough sketch of how you would want it to look like.
@@ -182,5 +182,5 @@ If you are interested in two-sided printing, have a look at [this feature reques
 
 - This template is currently mainly intended for Bachelor theses. While it might fulfill the requirements for Master theses as well, this is not guaranteed. If you are using it for a Master's thesis, please provide feedback [under this issue](https://github.com/Marcono1234/hda-fbi-typst-thesis-template/issues/3).
 
-[fbi-abschlussarbeit-docs]: https://fbi.h-da.de/studium/studienorganisation/studienorganisation-b-sc-informatik/abschlussarbeit
-[fbi-abschlussarbeit-recommendations]: https://fbi.h-da.de/fileadmin/Group_Dekanat/Dokumente/Studium/Group_Bachelor-Koordinator/BSc/empfehlungen_zu_abschlussarbeiten.pdf
+[fbi-abschlussarbeit-docs]: https://www.fbi.h-da.de/studieren/studium/organisatorisches/abschlussphase/abschlussphase-bachelor
+[fbi-abschlussarbeit-recommendations]: https://www.fbi.h-da.de/fileadmin/user_upload/fachbereich-informatik/Main_Menu/Studieren/Studium/Organisatorisches/Abschlussphase/Bachelor/empfehlungen_zu_abschlussarbeiten.pdf

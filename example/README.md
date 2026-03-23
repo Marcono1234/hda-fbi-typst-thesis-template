@@ -30,7 +30,7 @@ This creates a file named `thesis.pdf` in the current directory.
 When using the [Tinymist VS Code extension](https://github.com/Myriad-Dreamin/tinymist/tree/main/editors/vscode#readme) (third-party), do the following:\
 Open [`thesis.typ`](./thesis.typ), then run the command "> Typst Preview: Preview Opened File" or "> Typst: Export the Opened File as PDF".
 
-[fbi-abschlussarbeit-recommendations]: https://fbi.h-da.de/fileadmin/Group_Dekanat/Dokumente/Studium/Group_Bachelor-Koordinator/BSc/empfehlungen_zu_abschlussarbeiten.pdf
+[fbi-abschlussarbeit-recommendations]: https://www.fbi.h-da.de/fileadmin/user_upload/fachbereich-informatik/Main_Menu/Studieren/Studium/Organisatorisches/Abschlussphase/Bachelor/empfehlungen_zu_abschlussarbeiten.pdf
 
 [^1]: For this example the `thesis-template` directory is actually a symlink with target [`../template/`](../template/), to avoid code duplication within this repository. For your thesis it would directly contain the template source, see the [README](../README.md#using-the-template).\
 This symlink might cause problems when cloning the Git repository, especially on Windows (see related [Stack Overflow answer](https://stackoverflow.com/a/59761201)). If this causes issues for you, simply replace the `thesis-template` file / directory with a new directory containing the contents of [`/template`](../template/) (Git might report untracked files then, but for this example that can be ignored).

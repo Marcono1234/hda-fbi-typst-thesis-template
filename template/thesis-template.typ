@@ -326,7 +326,7 @@
 /// Compiling that file will then create the cover page.
 ///
 /// *Important:*
-/// - The cover is based on the #link("https://fbi.h-da.de/studium/studienorganisation/studienorganisation-b-sc-informatik/abschlussarbeit")[Documentation for Bachelor theses] (FAQ "Wie muss die Arbeit gebunden sein?"), but as mentioned there *you should clarify the content of the cover with your professor*.
+/// - The cover is based on the #link("https://www.fbi.h-da.de/studieren/studium/organisatorisches/abschlussphase/abschlussphase-bachelor")[Documentation for Bachelor theses] (FAQ "Wie muss die Arbeit gebunden sein?" / "How must the work be bound?"), but as mentioned there *you should clarify the content of the cover with your professor*.
 /// - It depends on the copy shop where you are printing your thesis how / in which format they expect the cover page. They might even ask you to enter the information manually on-site. Therefore only use the cover page as rough sketch of how you would want it to look like.
 #let cover-page(
   /// type of the thesis (Bachelor's thesis / Master's thesis)
