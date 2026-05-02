@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
-    - uses: typst-community/setup-typst@48aeee7543d37f01afd1ffb27307dc277387ba13  # v4.3.1
+    - uses: typst-community/setup-typst@63ac138db421d586de61f7f5ac3bcef6a2e6c78c  # v5.1.0
       with:
         typst-version: 0.14.2
 
