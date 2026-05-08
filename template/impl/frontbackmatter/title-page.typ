@@ -35,7 +35,6 @@
   let logo-alt = "h_da Logo"
   align(center, image("../logo_h-da.svg", alt: logo-alt, width: 52%))
 
-
   v(5mm)
 
   align(center, text(font: sans-font, size: 2em, weight: 700, university))
