@@ -89,10 +89,10 @@ Function parameters:
   - `date` (`datetime`)\
     for example `datetime.today()` or `datetime(year: 2025, month: 1, day: 1)`
 
-  - `signature` (`str` | `content`)\
+  - `signature` (`path` | `content`)\
     image of your handwritten signature; used for the "Eigenständigkeitserklärung"\
     Can be either:
-    - (recommended) a file path, absolute to the Typst compile root (that is, a path starting with `/`), for example `/signature.svg` or `/signature.png`
+    - (recommended) file path of an image, for example `path("/signature.svg")` or `path("/signature.png")`
     - an image, for example `image("my-signature.svg")` (in this case you manually have to set the proper image size, for example `height: 2.5em`)
 
     The image should consist only of the signature, ideally with transparent / white background and without excessive whitespace around it.
@@ -130,11 +130,11 @@ Function parameters:
   )
   ```
 
-- `bib` (`str`)\
-  file path to the bibliography / literature list, absolute to the Typst compile root (that is, a path starting with `/`)\
+- `bib` (`path`)\
+  file path of the bibliography / literature list file\
   The bibliography supports these formats:
-  - BibLaTeX (for example `/bibliography.bib`)
-  - [Hayagriva format](https://github.com/typst/hayagriva/blob/main/docs/file-format.md) (for example `/bibliography.yml`)
+  - BibLaTeX (for example `path("/bibliography.bib")`)
+  - [Hayagriva format](https://github.com/typst/hayagriva/blob/main/docs/file-format.md) (for example `path("/bibliography.yml")`)
   
   BibLaTeX can be converted to Hayagriva using the [Hayagriva CLI](https://github.com/typst/hayagriva/?tab=readme-ov-file#installation) with `hayagriva literature.bib`.\
   See the [Typst documentation](https://typst.app/docs/reference/model/bibliography/) for more information.

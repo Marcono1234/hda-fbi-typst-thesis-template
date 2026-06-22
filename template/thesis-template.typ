@@ -1,8 +1,3 @@
-/*
- * Note: Due to usage of file path strings for signature and bibliography this template cannot
- * be published as package yet because the package would be unable to access files outside of it;
- * would have to wait for dedicated 'file path' type, see https://typst.app/docs/reference/syntax/#paths-and-packages
- */
 /// Thesis template
 ///
 /// Usage:
@@ -92,11 +87,11 @@
   /// - `date` (#tidy-show-type(datetime))\
   ///   for example `datetime.today()` or `datetime(year: 2025, month: 1, day: 1)`
   ///
-  /// - `signature` (#tidy-show-type(str) #tidy-show-type(content))\
+  /// - `signature` (#tidy-show-type(path) #tidy-show-type(content))\
   ///   image of your handwritten signature; used for the "Eigenständigkeitserklärung"
   ///
   ///   Can be either:
-  ///   - (recommended) a file path, absolute to the Typst compile root (that is, a path starting with `/`), for example `/signature.svg` or `/signature.png`
+  ///   - (recommended) file path of an image, for example `path("/signature.svg")` or `path("/signature.png")`
   ///   - an image, for example `image("my-signature.svg")` (in this case you manually have to set the proper image size, for example `height: 2.5em`)
   ///
   ///   The image should consist only of the signature, ideally with transparent / white background and without excessive whitespace around it.
@@ -149,11 +144,11 @@
   /// ```
   /// -> array
   acronyms: (),
-  /// file path to the bibliography / literature list, absolute to the Typst compile root (that is, a path starting with `/`)
+  /// file path of the bibliography / literature list file
   ///
   /// The bibliography supports these formats:
-  /// - BibLaTeX (for example `/bibliography.bib`)
-  /// - #link("https://github.com/typst/hayagriva/blob/main/docs/file-format.md")[Hayagriva format] (for example `/bibliography.yml`)
+  /// - BibLaTeX (for example `path("/bibliography.bib")`)
+  /// - #link("https://github.com/typst/hayagriva/blob/main/docs/file-format.md")[Hayagriva format] (for example `path("/bibliography.yml")`)
   ///
   /// BibLaTeX can be converted to Hayagriva using the #link("https://github.com/typst/hayagriva/?tab=readme-ov-file#installation")[Hayagriva CLI] with:
   /// ```sh
@@ -161,8 +156,8 @@
   /// ```
   /// See the #link("https://typst.app/docs/reference/model/bibliography/")[Typst documentation] for more information.
   ///
-  /// -> str
-  bib: "/bibliography.yml",
+  /// -> path
+  bib: none,
   /// whether to fail if any TODO function calls are still in the document
   ///
   /// The thesis template offers the custom @todo and @todo-content functions which you can use as placeholder or reminder for content which you have not written yet or want to rework later.
@@ -187,8 +182,6 @@
   /// -> content
   doc,
 ) = {
-  // Typst has no dedicated 'file path' type yet, see https://github.com/typst/typst/issues/971
-  let type-file-path = str
   import "constants.typ": *
   import "impl/arg-validation.typ": *
   check-arg(language, str)
@@ -207,15 +200,14 @@
     // Permit `content` to allow using `todo-content`
     "date": arg-type-choice(datetime, content),
     // Image file path or image
-    "signature": arg-type-choice(type-file-path, content),
+    "signature": arg-type-choice(path, content),
   ))
   check-arg(restricted, bool)
   check-arg(abstract-de, content)
   check-arg(abstract-en, content)
   // Let Glossarium validate the structure of the entries
   check-arg(acronyms, (arg-any(),))
-  // Let Typst validate the bibliography source
-  check-arg(bib, arg-any())
+  check-arg(bib, path)
   check-arg(fail-on-todo, bool)
 
   if language != lang-de and language != lang-en {

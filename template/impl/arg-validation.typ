@@ -2,10 +2,10 @@
 // TODO: Remove once Typst supports type annotations, see https://github.com/typst/typst/issues/317
 //   or replace with https://github.com/typst-community/valkyrie ?
 
-#let _format-path(path) = if path.len() == 0 { " " } else {
+#let _format-arg-path(arg-path) = if arg-path.len() == 0 { " " } else {
   (
     " at path "
-      + path
+      + arg-path
         .map(item => if type(item) == int { "[" + str(item) + "]" } else {
           "[\"" + item.replace("\"", "\\\"") + "\"]"
         })
@@ -14,29 +14,29 @@
   )
 }
 
-#let _check-arg(arg, validator, path, errors) = {
+#let _check-arg(arg, validator, arg-path, errors) = {
   if type(validator) == function {
     // call the validator function
-    errors += validator(arg, path)
+    errors += validator(arg, arg-path)
   } else if type(validator) == array {
     // validate array
     if validator.len() == 1 {
       if type(arg) != array {
-        errors.push("expected argument" + _format-path(path) + "to be an array")
+        errors.push("expected argument" + _format-arg-path(arg-path) + "to be an array")
         return errors
       }
 
       let item-validator = validator.at(0)
 
       for (index, value) in arg.enumerate() {
-        let nested-path = array(path)
-        nested-path.push(index)
-        errors = _check-arg(value, item-validator, nested-path, errors)
+        let nested-arg-path = array(arg-path)
+        nested-arg-path.push(index)
+        errors = _check-arg(value, item-validator, nested-arg-path, errors)
       }
     } // validate dict, with custom key validator
     else if validator.len() == 2 {
       if type(arg) != dictionary {
-        errors.push("expected argument" + _format-path(path) + "to be a dictionary")
+        errors.push("expected argument" + _format-arg-path(arg-path) + "to be a dictionary")
         return errors
       }
 
@@ -44,11 +44,11 @@
       let value-validator = validator.at(1)
 
       for (key, value) in arg.pairs() {
-        let nested-path = array(path)
-        nested-path.push(key)
+        let nested-arg-path = array(arg-path)
+        nested-arg-path.push(key)
         // TODO: This causes confusing error messages because it refers to the key as "value"
-        errors = _check-arg(key, key-validator, nested-path, errors)
-        errors = _check-arg(value, value-validator, nested-path, errors)
+        errors = _check-arg(key, key-validator, nested-arg-path, errors)
+        errors = _check-arg(value, value-validator, nested-arg-path, errors)
       }
     } else {
       panic("unsupported validator", validator)
@@ -56,7 +56,7 @@
   } // validate dict, with static key names
   else if type(validator) == dictionary {
     if type(arg) != dictionary {
-      errors.push("expected argument" + _format-path(path) + "to be a dictionary")
+      errors.push("expected argument" + _format-arg-path(arg-path) + "to be a dictionary")
       return errors
     }
 
@@ -66,10 +66,10 @@
     let unexpected-keys = actual-keys.filter(k => not expected-keys.contains(k))
 
     if missing-keys.len() > 0 {
-      errors.push("argument" + _format-path(path) + "is missing keys: " + missing-keys.join(", "))
+      errors.push("argument" + _format-arg-path(arg-path) + "is missing keys: " + missing-keys.join(", "))
     }
     if unexpected-keys.len() > 0 {
-      errors.push("argument" + _format-path(path) + "has unexpected keys: " + unexpected-keys.join(", "))
+      errors.push("argument" + _format-arg-path(arg-path) + "has unexpected keys: " + unexpected-keys.join(", "))
     }
 
     for (key, value) in arg.pairs() {
@@ -78,17 +78,17 @@
       }
 
       let value-validator = validator.at(key)
-      let nested-path = array(path)
-      nested-path.push(key)
-      errors = _check-arg(value, value-validator, nested-path, errors)
+      let nested-arg-path = array(arg-path)
+      nested-arg-path.push(key)
+      errors = _check-arg(value, value-validator, nested-arg-path, errors)
     }
   } else if type(validator) == type {
     if type(arg) != validator {
-      errors.push("expected argument" + _format-path(path) + "to have type: " + str(validator))
+      errors.push("expected argument" + _format-arg-path(arg-path) + "to have type: " + str(validator))
     }
   } else {
     if arg != validator {
-      errors.push("expected argument" + _format-path(path) + "to have value: " + str(validator))
+      errors.push("expected argument" + _format-arg-path(arg-path) + "to have value: " + str(validator))
     }
   }
 
@@ -108,7 +108,7 @@
     panic("must specify at least 2 choices")
   }
 
-  let validate-choice(arg, path) = {
+  let validate-choice(arg, arg-path) = {
     let all-errors = ()
     for c in choices.pos() {
       let errors = _check-arg(arg, c, (), ())
@@ -120,7 +120,7 @@
     }
 
     // TODO: Better reporting for this?
-    return ("expected argument" + _format-path(path) + "to fullfil one of: [" + all-errors.join(" | ") + "]",)
+    return ("expected argument" + _format-arg-path(arg-path) + "to fullfil one of: [" + all-errors.join(" | ") + "]",)
   }
   validate-choice
 }
@@ -136,9 +136,14 @@
     panic("must only specify types")
   }
 
-  let validate-choice(arg, path) = {
+  let validate-choice(arg, arg-path) = {
     if not allowed-types.contains(type(arg)) {
-      ("expected argument" + _format-path(path) + "to have one of those types: " + allowed-types.join(", "),)
+      (
+        "expected argument"
+          + _format-arg-path(arg-path)
+          + "to have one of those types: "
+          + allowed-types.map(t => str(t)).join(", "),
+      )
     }
 
     ()
@@ -149,6 +154,6 @@
 /// Validator which always passes. Useful when not performing validation for a specific argument
 /// but instead letting Typst or a third-party package validate it when they use it.
 #let arg-any() = {
-  let validate-any(arg, path) = ()
+  let validate-any(arg, arg-path) = ()
   validate-any
 }

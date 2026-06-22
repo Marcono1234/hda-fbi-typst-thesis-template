@@ -14,7 +14,7 @@
     location: "Darmstadt",
     // Alternatively can set a specific date, e.g. `datetime(year: 2025, month: 1, day: 1)`
     date: datetime.today(),
-    signature: "/signature.svg",
+    signature: path("/signature.svg"),
   ),
   // Let's assume the thesis has a blocking notice ("Sperrvermerk")
   restricted: true,
@@ -25,6 +25,7 @@
     import "content/acronyms.typ": acronyms
     acronyms
   },
+  bib: path("/bibliography.yml"),
   // Set this to `true` when you are done with the thesis
   fail-on-todo: false,
 )
