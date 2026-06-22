@@ -7,15 +7,19 @@ In addition to Typst's built-in functionality, you can use 'packages' created by
 Let's say you want some sequence diagrams. Then first import the package (in this case `chronos`), and then use its functions:
 
 #import "@preview/chronos:0.3.0"
-#figure(caption: [Creating a thesis], chronos.diagram({
-  import chronos: *
-  _par("A", display-name: "User")
-  _par("B", display-name: "Typst")
+#figure(
+  caption: [Creating a thesis],
+  alt: "sequence diagram showing the steps involved in creating a thesis using Typst",
+  chronos.diagram({
+    import chronos: *
+    _par("A", display-name: "User")
+    _par("B", display-name: "Typst")
 
-  _seq("A", "B", comment: "create my thesis")
-  _seq("B", "B", comment: "heavy working")
-  _seq("B", "A", comment: "your thesis")
-}))
+    _seq("A", "B", comment: "create my thesis")
+    _seq("B", "B", comment: "heavy working")
+    _seq("B", "A", comment: "your thesis")
+  }),
+)
 
 Alternatively, you can create diagrams with any external tool and then include the image (ideally an SVG) using Typst's `image` function.
 

@@ -52,11 +52,17 @@ class Main {
 
 == Math
 
-Writing a Math-heavy thesis? How about writing some formulas like $a^2 + b^2 = c^2$, or maybe:
+Writing a Math-heavy thesis? How about writing some formulas like #math.equation(alt: "pythagorean equation", $a^2 + b^2 = c^2$), or maybe:
 
-$
-  lim_(n->oo) (1 - 1/n)^n = 1/e
-$
+#math.equation(
+  alt: "formula for limit calculation",
+  block: true,
+  $
+    lim_(n->oo) (1 - 1/n)^n = 1/e
+  $,
+)
+
+If the `alt` text is not needed, then the math code can be directly written using `$ ... $` without having to call `#math.equation`.
 
 == Tables
 

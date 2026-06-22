@@ -60,7 +60,8 @@ jobs:
       - name: Build thesis
         working-directory: example
         # TODO: Once supported fail on warnings, see https://github.com/typst/typst/issues/6787
-        # TODO: Maybe in the future use `--pdf-standard ua-1` (or ua-2) to check accessibility compliance
+        # TODO: Maybe in the future use `--pdf-standard a-2a,ua-1` (or ua-2) to check accessibility compliance
+        #  blocked by https://github.com/typst-community/glossarium/issues/196
         run: typst compile thesis.typ thesis.pdf
 
       - name: Build cover
