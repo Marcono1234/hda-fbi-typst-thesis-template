@@ -20,15 +20,10 @@ jobs:
       # TODO: Simplify this by using https://github.com/typstyle-rs/typstyle-action?
       #   but is not that actively maintained and does not support specifying typstyle version?
       - name: Download typstyle
-        uses: robinraju/release-downloader@28fc21f50d76778e7023361aa1f863e717d3d56f  # v1.13
-        with:
-          repository: typstyle-rs/typstyle
-          tag: v0.15.0
-          fileName: typstyle-x86_64-unknown-linux-gnu
-      - name: Rename typstyle binary
         run: |
-          mv typstyle-x86_64-unknown-linux-gnu typstyle
+          gh release download v0.15.0 --repo typstyle-rs/typstyle --pattern typstyle-x86_64-unknown-linux-gnu --output typstyle --clobber
           chmod +x typstyle
+          ./typstyle --version
       - name: Check formatting
         # Increase line width to 120, to also match default of Tinymist IDE extension
         run: ./typstyle --line-width 120 --diff .
